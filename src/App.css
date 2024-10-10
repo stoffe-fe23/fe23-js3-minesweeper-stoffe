@@ -29,14 +29,13 @@
 }
 
 button.game-cell:not(:enabled) {
-    border: 0;
+    border: 1px solid transparent;
     cursor: default;
     transition: none;
 }
 
 button.game-cell:hover:not(:enabled) {
-    border-color: transparent;
-    border: 0;
+    border: 1px solid transparent;
     cursor: default;
     transition: none;
 }
