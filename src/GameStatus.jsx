@@ -25,20 +25,25 @@ function GameStatus({ gameState, score }) {
     // Set status text and color depending on the state of the game.
     switch (gameState) {
         case "Victory": // Player has avoided all mines and uncovered all other squares.
-            gameStatus = "Seger!";
+            gameStatus = "😊 Du har vunnit!";
             statusClass.push("victory");
             break;
         case "Exploded": // Player stepped on a mine.
-            gameStatus = `Exploderad!`;
+            gameStatus = `💥 Exploderad!`;
             statusClass.push("defeat");
             break;
         case "Ongoing": // The game is still going, show the current score.
-            gameStatus = `Välj ruta`;
+            gameStatus = `❔ Undvik 7 minor`;
             break;
     }
 
     // Render the status text.
-    return (<div className={statusClass.join(" ")}><div className="game-status">{gameStatus}</div><div className="score">Poäng: {score} (Bäst: {highScore})</div></div>);
+    return (
+        <div className={statusClass.join(" ")}>
+            <div className="score">Poäng: {score} (Bäst: {highScore})</div>
+            <div className="game-status">{gameStatus}</div>
+        </div>
+    );
 }
 
 export default GameStatus;

@@ -9,7 +9,7 @@ function App() {
 
     return (
         <div id="game">
-            <h1>Röj!</h1>
+            <h1>Minröjning</h1>
             <GameBoard />
         </div>
     )

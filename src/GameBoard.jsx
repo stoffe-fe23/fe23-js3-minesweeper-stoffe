@@ -37,6 +37,7 @@ class GameBoard extends React.Component {
 
     // Event handler when a board cell has been clicked. Check for victory/loss and update score. 
     onCellClick = (cell) => {
+        // Clone current state
         const newState = {
             ...this.state,
             cells: this.state.cells.map((cell) => { return { ...cell }; }),
@@ -59,7 +60,7 @@ class GameBoard extends React.Component {
             }
         }
 
-        // Update the state with changed to the game board. 
+        // Update the state with changes. 
         this.setState(newState);
     }
 
@@ -68,7 +69,6 @@ class GameBoard extends React.Component {
         return (
             <div className="game-board-container">
                 <GameStatus gameState={this.state.gameState} score={this.state.moveCount} />
-                {(this.state.gameState == "Exploded" || this.state.gameState == "Victory") && <button onClick={this.restartGame}>Spela igen!</button>}
                 <div className="game-board">
                     {
                         this.state.cells.map(
@@ -76,6 +76,7 @@ class GameBoard extends React.Component {
                         )
                     }
                 </div>
+                {(this.state.gameState == "Exploded" || this.state.gameState == "Victory") && <button onClick={this.restartGame}>Spela igen!</button>}
             </div>
         );
     }
