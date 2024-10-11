@@ -34,6 +34,7 @@ body {
     align-items: flex-start;
     min-width: 320px;
     min-height: 100vh;
+    background-color: #242424;
 }
 
 h1 {

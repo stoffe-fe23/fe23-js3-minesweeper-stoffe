@@ -33,7 +33,7 @@ function GameStatus({ gameState, score }) {
             statusClass.push("defeat");
             break;
         case "Ongoing": // The game is still going, show the current score.
-            gameStatus = `❔ Undvik 7 minor`;
+            gameStatus = `Undvik 7 minor`;
             break;
     }
 

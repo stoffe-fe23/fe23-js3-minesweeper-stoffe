@@ -101,6 +101,7 @@ button.game-cell:hover:not(:enabled) {
     font-size: 2rem;
     font-weight: 900;
     text-transform: uppercase;
+    color: white;
 }
 
 .victory {
