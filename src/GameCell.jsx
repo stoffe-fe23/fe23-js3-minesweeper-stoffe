@@ -20,7 +20,7 @@ function GameCell({ cell, onClick, enabled }) {
         cellClasses.push("visible");
     }
 
-    // Render the cell as a button. 
+    // Render the cell as a button (disabled if already clicked, or controls are locked). 
     return (<button disabled={!enabled || cell.visible} className={cellClasses.join(" ")} onClick={(evt) => onClick(cell)}>{cellContent}</button>);
 }
 
