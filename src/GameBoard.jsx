@@ -20,41 +20,55 @@ class GameBoard extends React.Component {
         this.state.moveCount = 0; // Track number of cells the player has clicked on, doubles as the score. 
         this.state.controlsEnabled = true; // Is the player allowed to click on the cells on the board? 
         this.state.gameState = "Ongoing"; // State of the game [Ongoing|Victory|Exploded]
+
+        this.restartGame = this.restartGame.bind(this);
+    }
+
+    // Reset the game board and start a new game.
+    restartGame() {
+        const newState = {
+            cells: createBoard(this.boardSize * this.boardSize, this.mineCount),
+            moveCount: 0,
+            controlsEnabled: true,
+            gameState: "Ongoing"
+        }
+        this.setState(newState);
     }
 
     // Event handler when a board cell has been clicked. Check for victory/loss and update score. 
     onCellClick = (cell) => {
-        const currState = {
+        const newState = {
             ...this.state,
             cells: this.state.cells.map((cell) => { return { ...cell }; }),
         }
 
         // Cell is clicked, display its content. 
-        currState.cells[cell.index].visible = true;
+        newState.cells[cell.index].visible = true;
 
         // Player clicked on a mine. Game over!
         if (cell.hasMine) {
-            currState.controlsEnabled = false;
-            currState.gameState = "Exploded";
+            newState.controlsEnabled = false;
+            newState.gameState = "Exploded";
         }
         else {
             // Check for victory condition (all non-mine squares clicked)
-            currState.moveCount++;
-            if (currState.moveCount >= (this.boardSize * this.boardSize) - this.mineCount) {
-                currState.controlsEnabled = false;
-                currState.gameState = "Victory";
+            newState.moveCount++;
+            if (newState.moveCount >= (this.boardSize * this.boardSize) - this.mineCount) {
+                newState.controlsEnabled = false;
+                newState.gameState = "Victory";
             }
         }
 
         // Update the state with changed to the game board. 
-        this.setState(currState);
+        this.setState(newState);
     }
 
     // Render component, creating the cells on the game board along with a status bar showint the score and victory/loss messages. 
     render() {
         return (
-            <>
+            <div className="game-board-container">
                 <GameStatus gameState={this.state.gameState} score={this.state.moveCount} />
+                {(this.state.gameState == "Exploded" || this.state.gameState == "Victory") && <button onClick={this.restartGame}>Spela igen!</button>}
                 <div className="game-board">
                     {
                         this.state.cells.map(
@@ -62,7 +76,7 @@ class GameBoard extends React.Component {
                         )
                     }
                 </div>
-            </>
+            </div>
         );
     }
 }
