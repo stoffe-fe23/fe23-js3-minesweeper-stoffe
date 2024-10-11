@@ -38,7 +38,7 @@ function GameStatus({ gameState, score }) {
     }
 
     // Render the status text.
-    return (<div className={statusClass.join(" ")}><div>{gameStatus}</div><div className="score">Poäng: {score} (Bäst: {highScore})</div></div>);
+    return (<div className={statusClass.join(" ")}><div className="game-status">{gameStatus}</div><div className="score">Poäng: {score} (Bäst: {highScore})</div></div>);
 }
 
 export default GameStatus;
