@@ -11,7 +11,7 @@
 }
 
 #game h1 {
-    margin: 0 0 0.8rem 0;
+    margin: 0;
     font-size: 3rem;
     font-weight: 900;
     color: orange;
@@ -105,9 +105,17 @@ button.game-cell:hover:not(:enabled) {
 }
 
 .score {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
     font-size: 1rem;
     font-weight: 700;
     background-color: black;
+    color: lightblue;
+}
+
+.score span {
+    padding: 0 1rem;
 }
 
 .victory {

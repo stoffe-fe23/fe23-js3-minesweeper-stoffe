@@ -38,7 +38,7 @@ function GameStatus({ gameState, score, mineCount }) {
     return (
         <div className={statusClass.join(" ")}>
             <div className="game-status">{gameStatus}</div>
-            <div className="score">Poäng: {score} (Bäst: {highScore})</div>
+            <div className="score"><span>Poäng: {score}</span><span>Bäst: {highScore}</span></div>
         </div>
     );
 }
