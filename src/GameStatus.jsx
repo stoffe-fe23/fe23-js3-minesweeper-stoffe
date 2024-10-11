@@ -4,8 +4,8 @@
 */
 import { useState, useEffect } from "react";
 
-function GameStatus({ gameState, score }) {
-    let gameStatus = "";
+function GameStatus({ gameState, score, mineCount }) {
+    let gameStatus = `Undvik ${mineCount} minor`;
     let statusClass = ["status"];
 
     // Load current high score from local storage.
@@ -22,18 +22,15 @@ function GameStatus({ gameState, score }) {
         setHighScore(score);
     }
 
-    // Set status text and color depending on the state of the game.
+    // Change status text and color depending on the state of the game.
     switch (gameState) {
-        case "Victory": // Player has avoided all mines and uncovered all other squares.
+        case "Victory": // Player has avoided mines and uncovered all other squares.
             gameStatus = "😊 Du har vunnit!";
             statusClass.push("victory");
             break;
         case "Exploded": // Player stepped on a mine.
             gameStatus = `💥 Exploderad!`;
             statusClass.push("defeat");
-            break;
-        case "Ongoing": // The game is still going, show the current score.
-            gameStatus = `Undvik 7 minor`;
             break;
     }
 

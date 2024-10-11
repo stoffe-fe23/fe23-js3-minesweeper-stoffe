@@ -68,7 +68,7 @@ class GameBoard extends React.Component {
     render() {
         return (
             <div className="game-board-container">
-                <GameStatus gameState={this.state.gameState} score={this.state.moveCount} />
+                <GameStatus gameState={this.state.gameState} score={this.state.moveCount} mineCount={this.mineCount} />
                 <div className="game-board">
                     {
                         this.state.cells.map(
