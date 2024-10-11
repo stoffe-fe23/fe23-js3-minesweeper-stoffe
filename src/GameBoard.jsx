@@ -64,7 +64,8 @@ class GameBoard extends React.Component {
         this.setState(newState);
     }
 
-    // Render component, creating the cells on the game board along with a status bar showint the score and victory/loss messages. 
+    // Render component, creating the cell components on the game board, along with a status component showing the score and victory/loss messages. 
+    // Display button to restart the game if the current game is won or lost. 
     render() {
         return (
             <div className="game-board-container">
