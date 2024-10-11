@@ -104,16 +104,16 @@ button.game-cell:hover:not(:enabled) {
     color: white;
 }
 
+.score {
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: black;
+}
+
 .victory {
     color: green;
 }
 
 .defeat {
     color: red;
-}
-
-.score {
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: black;
 }
