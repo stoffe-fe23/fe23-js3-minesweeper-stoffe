@@ -24,24 +24,30 @@ class GameBoard extends React.Component {
 
     // Event handler when a board cell has been clicked. Check for victory/loss and update score. 
     onCellClick = (cell) => {
-        this.state.cells[cell.index].visible = true;
+        const currState = {
+            ...this.state,
+            cells: this.state.cells.map((cell) => { return { ...cell }; }),
+        }
+
+        // Cell is clicked, display its content. 
+        currState.cells[cell.index].visible = true;
 
         // Player clicked on a mine. Game over!
         if (cell.hasMine) {
-            this.state.controlsEnabled = false;
-            this.state.gameState = "Exploded";
+            currState.controlsEnabled = false;
+            currState.gameState = "Exploded";
         }
         else {
             // Check for victory condition (all non-mine squares clicked)
-            this.state.moveCount++;
-            if (this.state.moveCount >= (this.boardSize * this.boardSize) - this.mineCount) {
-                this.state.controlsEnabled = false;
-                this.state.gameState = "Victory";
+            currState.moveCount++;
+            if (currState.moveCount >= (this.boardSize * this.boardSize) - this.mineCount) {
+                currState.controlsEnabled = false;
+                currState.gameState = "Victory";
             }
         }
 
         // Update the state with changed to the game board. 
-        this.setState(this.state);
+        this.setState(currState);
     }
 
     // Render component, creating the cells on the game board along with a status bar showint the score and victory/loss messages. 
