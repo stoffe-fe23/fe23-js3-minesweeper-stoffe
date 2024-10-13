@@ -16,7 +16,7 @@ class GameBoard extends React.Component {
         super(props);
 
         // Number of rows/columns on the board.
-        this.state.boardSize = (!props.size || (Number(props.size < 2))) ? 5 : Number(props.size);
+        this.state.boardSize = (!props.size || (Number(props.size) < 2)) ? 5 : Number(props.size);
 
         // Number of mines to place on the board
         this.state.mineCount = (!props.mines || (Number(props.mines) < 1) || (Number(props.mines) >= (this.state.boardSize * this.state.boardSize)) ? 7 : Number(props.mines));
