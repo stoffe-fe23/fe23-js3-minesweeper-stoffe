@@ -2,6 +2,10 @@
     Inlämningsuppgift 2 "Röj", JavaScript 3, Kristoffer Bengtsson (FE23)
     Game stylesheet.
 */
+:root {
+    --gameboard-size: 5;
+}
+
 #root {
     max-width: 1280px;
     margin: 0 auto;
@@ -27,8 +31,8 @@
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(var(--gameboard-size), 1fr);
+    grid-template-rows: repeat(var(--gameboard-size), 1fr);
     gap: 0.3rem;
 
 }

@@ -21,6 +21,9 @@ class GameBoard extends React.Component {
         this.state.controlsEnabled = true; // Is the player allowed to click on the cells on the board? 
         this.state.gameState = "Ongoing"; // State of the game [Ongoing|Victory|Exploded]
 
+        // Update CSS grid dimensions to match the board size.
+        document.querySelector(':root').style.setProperty('--gameboard-size', this.boardSize);
+
         this.restartGame = this.restartGame.bind(this);
     }
 
