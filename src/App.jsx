@@ -10,7 +10,7 @@ function App() {
     return (
         <div id="game">
             <h1>Minröjning</h1>
-            <GameBoard />
+            <GameBoard size="5" mines="7" />
         </div>
     )
 }
